@@ -4,7 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Restaurancy - Hello World",
+  title: "Restaurants-App",
   description: "The best restaurants in the world",
   keywords: ["restaurant", "food", "eat", "dinner", "lunch"],
 };
@@ -18,7 +18,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         </header>
         <main className="py-8">{children}</main>
         <footer className="text-center leading-[3rem] opacity-70">
-          © {new Date().getFullYear()} Restaurancy
+          © {new Date().getFullYear()} Restaurants
         </footer>
       </body>
     </html>
