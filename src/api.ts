@@ -1,4 +1,4 @@
-export interface Restaurant {
+export interface RestaurantType {
   id: string;
   name: string;
   image: string;
@@ -9,13 +9,13 @@ export interface Restaurant {
 }
 
 const api = {
-  list: async (): Promise<Restaurant[]> => {
+  list: async (): Promise<RestaurantType[]> => {
     const [, ...data] = await fetch(
       "https://docs.google.com/spreadsheets/d/1I68xwA0YQuZF0IRA_COt-PJr2bXs5kM8IFEe5UIpZgE/pub?output=csv",
     )
       .then((res) => res.text())
       .then((text) => text.split("\n"));
-    const restaurants: Restaurant[] = data.map((row) => {
+    const restaurants: RestaurantType[] = data.map((row) => {
       const [id, name, description, address, score, ratings, image] = row.split(",");
 
       return {
@@ -31,13 +31,13 @@ const api = {
 
     return restaurants;
   },
-  fetch: async (id: Restaurant["id"]): Promise<Restaurant> => {
+  fetch: async (id: RestaurantType["id"]): Promise<RestaurantType> => {
     const [, ...data] = await fetch(
-      "https://docs.google.com/spreadsheets/d/e/2PACX-1vSOBI-iIMsOrSJM7Q5MjyOxoOYk5h005feJpojroduwQWtmrjVOhXKHNa1smtDO_AEx4lLrsS70uI9W/pub?output=csv",
+      "https://docs.google.com/spreadsheets/d/1I68xwA0YQuZF0IRA_COt-PJr2bXs5kM8IFEe5UIpZgE/pub?output=csv",
     )
       .then((res) => res.text())
       .then((text) => text.split("\n"));
-    const restaurants: Restaurant[] = data.map((row) => {
+    const restaurants: RestaurantType[] = data.map((row) => {
       const [id, name, description, address, score, ratings, image] = row.split(",");
 
       return {
