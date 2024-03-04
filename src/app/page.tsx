@@ -13,9 +13,8 @@ export default async function HomePage() {
     <section className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
       {restaurants.map((restaurant) => {
         return (
-          <>
+          <article key={restaurant.id} className="flex flex-col">
             <Restaurant
-              key={restaurant.id}
               address={restaurant.address}
               description={restaurant.description}
               id={restaurant.id}
@@ -24,10 +23,14 @@ export default async function HomePage() {
               ratings={restaurant.ratings}
               score={restaurant.score}
             />
-            <Link key={restaurant.id} href={`/${restaurant.id}`}>
+            <Link
+              key={restaurant.id}
+              className="w-fit pt-4 transition duration-300 ease-in-out hover:text-yellow-500"
+              href={`/${restaurant.id}`}
+            >
               {restaurant.name}
             </Link>
-          </>
+          </article>
         );
       })}
     </section>
