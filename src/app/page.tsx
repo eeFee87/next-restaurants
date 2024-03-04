@@ -1,5 +1,7 @@
 import type {RestaurantType} from "@/api";
 
+import Link from "next/link";
+
 import api from "@/api";
 
 import Restaurant from "./components/Restaurant";
@@ -11,16 +13,21 @@ export default async function HomePage() {
     <section className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
       {restaurants.map((restaurant) => {
         return (
-          <Restaurant
-            key={restaurant.id}
-            address={restaurant.address}
-            description={restaurant.description}
-            id={restaurant.id}
-            image={restaurant.image}
-            name={restaurant.name}
-            ratings={restaurant.ratings}
-            score={restaurant.score}
-          />
+          <>
+            <Restaurant
+              key={restaurant.id}
+              address={restaurant.address}
+              description={restaurant.description}
+              id={restaurant.id}
+              image={restaurant.image}
+              name={restaurant.name}
+              ratings={restaurant.ratings}
+              score={restaurant.score}
+            />
+            <Link key={restaurant.id} href={`/${restaurant.id}`}>
+              {restaurant.name}
+            </Link>
+          </>
         );
       })}
     </section>
