@@ -1,4 +1,4 @@
-import type {RestaurantType} from "@/api"; // Assuming Restaurant interface is named export
+import type {RestaurantType} from "@/types"; // Assuming Restaurant interface is named export
 
 function Restaurant({id, name, image, score, ratings, description}: RestaurantType) {
   return (

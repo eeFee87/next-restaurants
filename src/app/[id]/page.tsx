@@ -1,4 +1,4 @@
-import type {RestaurantType} from "@/api";
+import type {RestaurantType} from "@/types";
 
 import Link from "next/link";
 
