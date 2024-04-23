@@ -20,7 +20,7 @@ export default function SearchBox() {
   return (
     <form className="mb-4 inline-flex gap-2" onSubmit={handleSubmit}>
       {/* Inicializamos el input para que contenga el valor actual de la query */}
-      <input className="px-2" defaultValue={searchParams.get("q") || ""} name="query" />
+      <input className="bg-white/20 px-2" defaultValue={searchParams.get("q") || ""} name="query" />
       <button className="bg-white/20 p-2" type="submit">
         Search
       </button>

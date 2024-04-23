@@ -7,8 +7,15 @@ import api from "@/api";
 import Restaurant from "./components/Restaurant";
 import SearchBox from "./components/SearchBox";
 
-export default async function HomePage() {
-  const restaurants: RestaurantType[] = await api.list();
+export default async function HomePage({searchParams}: {searchParams: {q: string | undefined}}) {
+  let restaurants: RestaurantType[] | undefined;
+
+  if (searchParams.q !== undefined) {
+    restaurants = await api.search(searchParams.q);
+  } else {
+    // Manejar el caso cuando searchParams.q es undefined
+    restaurants = await api.list();
+  }
 
   return (
     <section>
