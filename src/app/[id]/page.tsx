@@ -15,6 +15,15 @@ export async function generateMetadata({params: {id}}: {params: {id: string}}) {
   };
 }
 
+// Genera los ids (que en principio no conoce) en tiempo de compilación de manera estatica
+export async function generateStaticParams() {
+  const restaurants = await api.list();
+
+  return restaurants.map((restaurant) => ({
+    id: restaurant.id,
+  }));
+}
+
 export default async function RestaurantPage({params: {id}}: {params: {id: string}}) {
   const restaurant: RestaurantType = await api.fetch(id);
 

@@ -24,6 +24,7 @@ const api = {
 
     return restaurants;
   },
+
   fetch: async (id: RestaurantType["id"]): Promise<RestaurantType> => {
     const [, ...data] = await fetch(
       "https://docs.google.com/spreadsheets/d/1I68xwA0YQuZF0IRA_COt-PJr2bXs5kM8IFEe5UIpZgE/pub?output=csv",
